@@ -52,7 +52,7 @@
             this.grpLogin.Size = new System.Drawing.Size(207, 84);
             this.grpLogin.TabIndex = 9;
             this.grpLogin.TabStop = false;
-            this.grpLogin.Text = "Dados para acesso TESTE";
+            this.grpLogin.Text = "Dados para acesso";
             // 
             // txtSenha
             // 
