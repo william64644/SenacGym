@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Senac_Gym
 {
-    public partial class frmNomeEmpresa : Form
+    public partial class frmPrincipal : Form
     {
-        public frmNomeEmpresa()
+        public frmPrincipal()
         {
             InitializeComponent();
         }

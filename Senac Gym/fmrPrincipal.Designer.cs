@@ -1,6 +1,6 @@
 ﻿namespace Senac_Gym
 {
-    partial class frmNomeEmpresa
+    partial class frmPrincipal
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNomeEmpresa));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCadastroUsuario = new System.Windows.Forms.ToolStripMenuItem();
