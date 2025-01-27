@@ -54,11 +54,11 @@
     <Compile Include="fmrPrincipal.Designer.cs">
       <DependentUpon>fmrPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCliente.cs">
+    <Compile Include="frmImc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCliente.Designer.cs">
-      <DependentUpon>frmCliente.cs</DependentUpon>
+    <Compile Include="frmImc.Designer.cs">
+      <DependentUpon>frmImc.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -72,6 +72,12 @@
     <Compile Include="frmTreino.Designer.cs">
       <DependentUpon>frmTreino.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,14 +85,17 @@
     <EmbeddedResource Include="fmrPrincipal.resx">
       <DependentUpon>fmrPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCliente.resx">
-      <DependentUpon>frmCliente.cs</DependentUpon>
+    <EmbeddedResource Include="frmImc.resx">
+      <DependentUpon>frmImc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTreino.resx">
       <DependentUpon>frmTreino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

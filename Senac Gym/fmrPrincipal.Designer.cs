@@ -76,8 +76,9 @@
             // 
             this.mnuCadastroUsuario.Image = global::Senac_Gym.Properties.Resources.businessman_add;
             this.mnuCadastroUsuario.Name = "mnuCadastroUsuario";
-            this.mnuCadastroUsuario.Size = new System.Drawing.Size(164, 22);
+            this.mnuCadastroUsuario.Size = new System.Drawing.Size(188, 30);
             this.mnuCadastroUsuario.Text = "&Cadastro Usuário";
+            this.mnuCadastroUsuario.Click += new System.EventHandler(this.mnuCadastroUsuario_Click);
             // 
             // btnPagamentos
             // 
@@ -155,7 +156,7 @@
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // frmNomeEmpresa
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -169,7 +170,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmNomeEmpresa";
+            this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Senac Gym - Tela inicial";
             this.menuStrip1.ResumeLayout(false);

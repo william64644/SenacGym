@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Senac_Gym
 {
-    public partial class frmCliente : Form
+    public partial class frmImc : Form
     {
-        public frmCliente()
+        public frmImc()
         {
             InitializeComponent();
-        }
-
-        private void frmCliente_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
