@@ -37,18 +37,16 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.grpDImc = new System.Windows.Forms.GroupBox();
-            this.lblPeso = new System.Windows.Forms.Label();
-            this.txtPeso = new System.Windows.Forms.TextBox();
-            this.lblAltura = new System.Windows.Forms.Label();
-            this.txtAltura = new System.Windows.Forms.TextBox();
-            this.lblAnos = new System.Windows.Forms.Label();
-            this.txtConfirmacao = new System.Windows.Forms.TextBox();
-            this.lblIdade = new System.Windows.Forms.Label();
-            this.txtSenha = new System.Windows.Forms.TextBox();
-            this.lblImc = new System.Windows.Forms.Label();
-            this.txtImc = new System.Windows.Forms.TextBox();
-            this.btnCalcular = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtImc = new System.Windows.Forms.TextBox();
+            this.lblImc = new System.Windows.Forms.Label();
+            this.lblPeso = new System.Windows.Forms.Label();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.lblIdade = new System.Windows.Forms.Label();
+            this.lblAltura = new System.Windows.Forms.Label();
+            this.txtConfirmacao = new System.Windows.Forms.TextBox();
+            this.txtAltura = new System.Windows.Forms.TextBox();
             this.grpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
             this.grpPesquisa.SuspendLayout();
@@ -132,6 +130,7 @@
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(265, 20);
             this.txtPesquisa.TabIndex = 0;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // lblPesquisa
             // 
@@ -145,7 +144,6 @@
             // grpDImc
             // 
             this.grpDImc.Controls.Add(this.lblUsuario);
-            this.grpDImc.Controls.Add(this.btnCalcular);
             this.grpDImc.Controls.Add(this.txtImc);
             this.grpDImc.Controls.Add(this.lblImc);
             this.grpDImc.Controls.Add(this.lblPeso);
@@ -155,7 +153,6 @@
             this.grpDImc.Controls.Add(this.lblAltura);
             this.grpDImc.Controls.Add(this.txtConfirmacao);
             this.grpDImc.Controls.Add(this.txtAltura);
-            this.grpDImc.Controls.Add(this.lblAnos);
             this.grpDImc.Location = new System.Drawing.Point(9, 194);
             this.grpDImc.Name = "grpDImc";
             this.grpDImc.Size = new System.Drawing.Size(359, 118);
@@ -163,114 +160,95 @@
             this.grpDImc.TabStop = false;
             this.grpDImc.Text = "Gravar IMC";
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(40, 22);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(34, 13);
+            this.lblUsuario.TabIndex = 33;
+            this.lblUsuario.Text = "Aluno";
+            // 
+            // txtImc
+            // 
+            this.txtImc.Location = new System.Drawing.Point(172, 80);
+            this.txtImc.MaxLength = 100;
+            this.txtImc.Name = "txtImc";
+            this.txtImc.ReadOnly = true;
+            this.txtImc.Size = new System.Drawing.Size(94, 20);
+            this.txtImc.TabIndex = 31;
+            // 
+            // lblImc
+            // 
+            this.lblImc.AutoSize = true;
+            this.lblImc.Location = new System.Drawing.Point(98, 83);
+            this.lblImc.Name = "lblImc";
+            this.lblImc.Size = new System.Drawing.Size(68, 13);
+            this.lblImc.TabIndex = 30;
+            this.lblImc.Text = "Valor do IMC";
+            // 
             // lblPeso
             // 
             this.lblPeso.AutoSize = true;
-            this.lblPeso.Location = new System.Drawing.Point(119, 48);
+            this.lblPeso.Location = new System.Drawing.Point(146, 48);
             this.lblPeso.Name = "lblPeso";
             this.lblPeso.Size = new System.Drawing.Size(31, 13);
             this.lblPeso.TabIndex = 29;
             this.lblPeso.Text = "Peso";
             // 
+            // txtSenha
+            // 
+            this.txtSenha.Location = new System.Drawing.Point(289, 45);
+            this.txtSenha.MaxLength = 100;
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(60, 20);
+            this.txtSenha.TabIndex = 23;
+            this.txtSenha.UseSystemPasswordChar = true;
+            // 
             // txtPeso
             // 
-            this.txtPeso.Location = new System.Drawing.Point(150, 46);
+            this.txtPeso.Location = new System.Drawing.Point(183, 45);
             this.txtPeso.MaxLength = 100;
             this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(46, 20);
+            this.txtPeso.Size = new System.Drawing.Size(60, 20);
             this.txtPeso.TabIndex = 22;
-            // 
-            // lblAltura
-            // 
-            this.lblAltura.AutoSize = true;
-            this.lblAltura.Location = new System.Drawing.Point(15, 49);
-            this.lblAltura.Name = "lblAltura";
-            this.lblAltura.Size = new System.Drawing.Size(34, 13);
-            this.lblAltura.TabIndex = 28;
-            this.lblAltura.Text = "Altura";
-            // 
-            // txtAltura
-            // 
-            this.txtAltura.Location = new System.Drawing.Point(55, 45);
-            this.txtAltura.MaxLength = 20;
-            this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(46, 20);
-            this.txtAltura.TabIndex = 21;
-            // 
-            // lblAnos
-            // 
-            this.lblAnos.AutoSize = true;
-            this.lblAnos.Location = new System.Drawing.Point(285, 49);
-            this.lblAnos.Name = "lblAnos";
-            this.lblAnos.Size = new System.Drawing.Size(31, 13);
-            this.lblAnos.TabIndex = 27;
-            this.lblAnos.Text = "Anos";
-            // 
-            // txtConfirmacao
-            // 
-            this.txtConfirmacao.Location = new System.Drawing.Point(60, 19);
-            this.txtConfirmacao.MaxLength = 100;
-            this.txtConfirmacao.Name = "txtConfirmacao";
-            this.txtConfirmacao.PasswordChar = '*';
-            this.txtConfirmacao.Size = new System.Drawing.Size(256, 20);
-            this.txtConfirmacao.TabIndex = 24;
-            this.txtConfirmacao.UseSystemPasswordChar = true;
             // 
             // lblIdade
             // 
             this.lblIdade.AutoSize = true;
-            this.lblIdade.Location = new System.Drawing.Point(209, 48);
+            this.lblIdade.Location = new System.Drawing.Point(249, 48);
             this.lblIdade.Name = "lblIdade";
             this.lblIdade.Size = new System.Drawing.Size(34, 13);
             this.lblIdade.TabIndex = 26;
             this.lblIdade.Text = "Idade";
             // 
-            // txtSenha
+            // lblAltura
             // 
-            this.txtSenha.Location = new System.Drawing.Point(245, 45);
-            this.txtSenha.MaxLength = 100;
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(41, 20);
-            this.txtSenha.TabIndex = 23;
-            this.txtSenha.UseSystemPasswordChar = true;
+            this.lblAltura.AutoSize = true;
+            this.lblAltura.Location = new System.Drawing.Point(40, 48);
+            this.lblAltura.Name = "lblAltura";
+            this.lblAltura.Size = new System.Drawing.Size(34, 13);
+            this.lblAltura.TabIndex = 28;
+            this.lblAltura.Text = "Altura";
             // 
-            // lblImc
+            // txtConfirmacao
             // 
-            this.lblImc.AutoSize = true;
-            this.lblImc.Location = new System.Drawing.Point(11, 83);
-            this.lblImc.Name = "lblImc";
-            this.lblImc.Size = new System.Drawing.Size(67, 13);
-            this.lblImc.TabIndex = 30;
-            this.lblImc.Text = "Calculo IMC ";
+            this.txtConfirmacao.Location = new System.Drawing.Point(80, 19);
+            this.txtConfirmacao.MaxLength = 100;
+            this.txtConfirmacao.Name = "txtConfirmacao";
+            this.txtConfirmacao.PasswordChar = '*';
+            this.txtConfirmacao.Size = new System.Drawing.Size(269, 20);
+            this.txtConfirmacao.TabIndex = 24;
+            this.txtConfirmacao.UseSystemPasswordChar = true;
             // 
-            // txtImc
+            // txtAltura
             // 
-            this.txtImc.Location = new System.Drawing.Point(84, 80);
-            this.txtImc.MaxLength = 100;
-            this.txtImc.Name = "txtImc";
-            this.txtImc.Size = new System.Drawing.Size(65, 20);
-            this.txtImc.TabIndex = 31;
-            // 
-            // btnCalcular
-            // 
-            this.btnCalcular.Location = new System.Drawing.Point(187, 77);
-            this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(114, 25);
-            this.btnCalcular.TabIndex = 32;
-            this.btnCalcular.Text = "&Calcular";
-            this.btnCalcular.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCalcular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCalcular.UseVisualStyleBackColor = true;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(11, 22);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
-            this.lblUsuario.TabIndex = 33;
-            this.lblUsuario.Text = "Usuario";
+            this.txtAltura.Location = new System.Drawing.Point(80, 45);
+            this.txtAltura.MaxLength = 20;
+            this.txtAltura.Name = "txtAltura";
+            this.txtAltura.Size = new System.Drawing.Size(60, 20);
+            this.txtAltura.TabIndex = 21;
             // 
             // frmImc
             // 
@@ -317,10 +295,8 @@
         private System.Windows.Forms.Label lblAltura;
         private System.Windows.Forms.TextBox txtConfirmacao;
         private System.Windows.Forms.TextBox txtAltura;
-        private System.Windows.Forms.Label lblAnos;
         private System.Windows.Forms.Label lblImc;
         private System.Windows.Forms.TextBox txtImc;
-        private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Label lblUsuario;
     }
 }

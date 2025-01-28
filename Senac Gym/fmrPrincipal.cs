@@ -35,5 +35,10 @@ namespace Senac_Gym
             //No click do menu, chamamos o método para abrir o formulário
             AbrirForm(new frmUsuario());
         }
+
+        private void btnConsultaIMC_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmImc());
+        }
     }
 }

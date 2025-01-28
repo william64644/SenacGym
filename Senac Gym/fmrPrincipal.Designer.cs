@@ -100,6 +100,7 @@
             this.btnConsultaIMC.Name = "btnConsultaIMC";
             this.btnConsultaIMC.Size = new System.Drawing.Size(65, 28);
             this.btnConsultaIMC.Text = "&IMC";
+            this.btnConsultaIMC.Click += new System.EventHandler(this.btnConsultaIMC_Click);
             // 
             // mnuSobre
             // 
