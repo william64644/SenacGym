@@ -56,5 +56,10 @@ namespace HappySmile
             }
             return retorno;
         }
+
+        public static bool isFloat(string input)
+        {
+            return float.TryParse(input, out _);
+        }
     }
 }

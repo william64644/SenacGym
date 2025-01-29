@@ -33,8 +33,8 @@ namespace Senac_Gym
             //    Application.Run(new frmPrincipal());
             //}
 
-            Application.Run(new frmPrincipal());
-
+            Application.Run(new frmAluno());
+            //Application.Run(new frmImc());
 
         }
     }

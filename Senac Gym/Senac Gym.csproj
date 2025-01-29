@@ -48,11 +48,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcessoBD.cs" />
+    <Compile Include="Aluno.cs" />
     <Compile Include="fmrPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fmrPrincipal.Designer.cs">
       <DependentUpon>fmrPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAluno.Designer.cs">
+      <DependentUpon>frmAluno.cs</DependentUpon>
     </Compile>
     <Compile Include="frmImc.cs">
       <SubType>Form</SubType>
@@ -85,6 +92,9 @@
     <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="fmrPrincipal.resx">
       <DependentUpon>fmrPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAluno.resx">
+      <DependentUpon>frmAluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmImc.resx">
       <DependentUpon>frmImc.cs</DependentUpon>

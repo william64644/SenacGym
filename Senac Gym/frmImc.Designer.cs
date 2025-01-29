@@ -41,11 +41,11 @@
             this.txtImc = new System.Windows.Forms.TextBox();
             this.lblImc = new System.Windows.Forms.Label();
             this.lblPeso = new System.Windows.Forms.Label();
-            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtIdade = new System.Windows.Forms.TextBox();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.lblIdade = new System.Windows.Forms.Label();
             this.lblAltura = new System.Windows.Forms.Label();
-            this.txtConfirmacao = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.txtAltura = new System.Windows.Forms.TextBox();
             this.grpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
@@ -63,13 +63,14 @@
             this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGravar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // grpLista
             // 
             this.grpLista.Controls.Add(this.grdDados);
             this.grpLista.Location = new System.Drawing.Point(10, 66);
             this.grpLista.Name = "grpLista";
-            this.grpLista.Size = new System.Drawing.Size(359, 122);
+            this.grpLista.Size = new System.Drawing.Size(428, 122);
             this.grpLista.TabIndex = 13;
             this.grpLista.TabStop = false;
             this.grpLista.Text = "Alunos Cadastrados";
@@ -88,8 +89,9 @@
             this.grdDados.RowHeadersVisible = false;
             this.grdDados.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdDados.Size = new System.Drawing.Size(342, 93);
+            this.grdDados.Size = new System.Drawing.Size(416, 93);
             this.grdDados.TabIndex = 0;
+            this.grdDados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDados_CellClick);
             // 
             // btnCancelar
             // 
@@ -119,7 +121,7 @@
             this.grpPesquisa.Controls.Add(this.lblPesquisa);
             this.grpPesquisa.Location = new System.Drawing.Point(10, 7);
             this.grpPesquisa.Name = "grpPesquisa";
-            this.grpPesquisa.Size = new System.Drawing.Size(359, 53);
+            this.grpPesquisa.Size = new System.Drawing.Size(434, 53);
             this.grpPesquisa.TabIndex = 12;
             this.grpPesquisa.TabStop = false;
             this.grpPesquisa.Text = "Dados para Pesquisa";
@@ -128,7 +130,7 @@
             // 
             this.txtPesquisa.Location = new System.Drawing.Point(83, 22);
             this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(265, 20);
+            this.txtPesquisa.Size = new System.Drawing.Size(345, 20);
             this.txtPesquisa.TabIndex = 0;
             this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
@@ -147,15 +149,15 @@
             this.grpDImc.Controls.Add(this.txtImc);
             this.grpDImc.Controls.Add(this.lblImc);
             this.grpDImc.Controls.Add(this.lblPeso);
-            this.grpDImc.Controls.Add(this.txtSenha);
+            this.grpDImc.Controls.Add(this.txtIdade);
             this.grpDImc.Controls.Add(this.txtPeso);
             this.grpDImc.Controls.Add(this.lblIdade);
             this.grpDImc.Controls.Add(this.lblAltura);
-            this.grpDImc.Controls.Add(this.txtConfirmacao);
+            this.grpDImc.Controls.Add(this.txtNome);
             this.grpDImc.Controls.Add(this.txtAltura);
             this.grpDImc.Location = new System.Drawing.Point(9, 194);
             this.grpDImc.Name = "grpDImc";
-            this.grpDImc.Size = new System.Drawing.Size(359, 118);
+            this.grpDImc.Size = new System.Drawing.Size(434, 118);
             this.grpDImc.TabIndex = 14;
             this.grpDImc.TabStop = false;
             this.grpDImc.Text = "Gravar IMC";
@@ -177,6 +179,7 @@
             this.txtImc.ReadOnly = true;
             this.txtImc.Size = new System.Drawing.Size(94, 20);
             this.txtImc.TabIndex = 31;
+            this.txtImc.TabStop = false;
             // 
             // lblImc
             // 
@@ -196,15 +199,15 @@
             this.lblPeso.TabIndex = 29;
             this.lblPeso.Text = "Peso";
             // 
-            // txtSenha
+            // txtIdade
             // 
-            this.txtSenha.Location = new System.Drawing.Point(289, 45);
-            this.txtSenha.MaxLength = 100;
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(60, 20);
-            this.txtSenha.TabIndex = 23;
-            this.txtSenha.UseSystemPasswordChar = true;
+            this.txtIdade.Location = new System.Drawing.Point(289, 45);
+            this.txtIdade.MaxLength = 100;
+            this.txtIdade.Name = "txtIdade";
+            this.txtIdade.ReadOnly = true;
+            this.txtIdade.Size = new System.Drawing.Size(60, 20);
+            this.txtIdade.TabIndex = 23;
+            this.txtIdade.TabStop = false;
             // 
             // txtPeso
             // 
@@ -232,15 +235,15 @@
             this.lblAltura.TabIndex = 28;
             this.lblAltura.Text = "Altura";
             // 
-            // txtConfirmacao
+            // txtNome
             // 
-            this.txtConfirmacao.Location = new System.Drawing.Point(80, 19);
-            this.txtConfirmacao.MaxLength = 100;
-            this.txtConfirmacao.Name = "txtConfirmacao";
-            this.txtConfirmacao.PasswordChar = '*';
-            this.txtConfirmacao.Size = new System.Drawing.Size(269, 20);
-            this.txtConfirmacao.TabIndex = 24;
-            this.txtConfirmacao.UseSystemPasswordChar = true;
+            this.txtNome.Location = new System.Drawing.Point(80, 19);
+            this.txtNome.MaxLength = 100;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.ReadOnly = true;
+            this.txtNome.Size = new System.Drawing.Size(349, 20);
+            this.txtNome.TabIndex = 24;
+            this.txtNome.TabStop = false;
             // 
             // txtAltura
             // 
@@ -254,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 366);
+            this.ClientSize = new System.Drawing.Size(452, 366);
             this.Controls.Add(this.grpDImc);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.grpLista);
@@ -267,6 +270,7 @@
             this.Name = "frmImc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IMC Alunos";
+            this.Load += new System.EventHandler(this.frmImc_Load);
             this.grpLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).EndInit();
             this.grpPesquisa.ResumeLayout(false);
@@ -289,11 +293,11 @@
         private System.Windows.Forms.Label lblPesquisa;
         private System.Windows.Forms.GroupBox grpDImc;
         private System.Windows.Forms.Label lblPeso;
-        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.TextBox txtIdade;
         private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label lblIdade;
         private System.Windows.Forms.Label lblAltura;
-        private System.Windows.Forms.TextBox txtConfirmacao;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.Label lblImc;
         private System.Windows.Forms.TextBox txtImc;
