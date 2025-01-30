@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCadastroUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.alunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPagamentos = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTreino = new System.Windows.Forms.ToolStripMenuItem();
             this.btnConsultaIMC = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +52,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuUsuarios,
+            this.alunoToolStripMenuItem,
             this.btnPagamentos,
             this.btnTreino,
             this.btnConsultaIMC,
@@ -65,20 +66,19 @@
             // 
             // mnuUsuarios
             // 
-            this.mnuUsuarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuCadastroUsuario});
             this.mnuUsuarios.Image = global::Senac_Gym.Properties.Resources.businessman;
             this.mnuUsuarios.Name = "mnuUsuarios";
             this.mnuUsuarios.Size = new System.Drawing.Size(88, 28);
             this.mnuUsuarios.Text = "&Usuários";
+            this.mnuUsuarios.Click += new System.EventHandler(this.mnuUsuarios_Click);
             // 
-            // mnuCadastroUsuario
+            // alunoToolStripMenuItem
             // 
-            this.mnuCadastroUsuario.Image = global::Senac_Gym.Properties.Resources.businessman_add;
-            this.mnuCadastroUsuario.Name = "mnuCadastroUsuario";
-            this.mnuCadastroUsuario.Size = new System.Drawing.Size(188, 30);
-            this.mnuCadastroUsuario.Text = "&Cadastro Usuário";
-            this.mnuCadastroUsuario.Click += new System.EventHandler(this.mnuCadastroUsuario_Click);
+            this.alunoToolStripMenuItem.Image = global::Senac_Gym.Properties.Resources.businesspeople;
+            this.alunoToolStripMenuItem.Name = "alunoToolStripMenuItem";
+            this.alunoToolStripMenuItem.Size = new System.Drawing.Size(75, 28);
+            this.alunoToolStripMenuItem.Text = "Aluno";
+            this.alunoToolStripMenuItem.Click += new System.EventHandler(this.alunoToolStripMenuItem_Click);
             // 
             // btnPagamentos
             // 
@@ -115,6 +115,7 @@
             this.mnuSair.Name = "mnuSair";
             this.mnuSair.Size = new System.Drawing.Size(62, 28);
             this.mnuSair.Text = "Sai&r";
+            this.mnuSair.Click += new System.EventHandler(this.mnuSair_Click);
             // 
             // tmrPrincipal
             // 
@@ -189,7 +190,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnConsultaIMC;
         private System.Windows.Forms.ToolStripMenuItem btnTreino;
         private System.Windows.Forms.ToolStripMenuItem btnPagamentos;
-        private System.Windows.Forms.ToolStripMenuItem mnuCadastroUsuario;
         private System.Windows.Forms.ToolStripMenuItem mnuUsuarios;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuSobre;
@@ -198,6 +198,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblConexao;
         private System.Windows.Forms.ToolStripStatusLabel lblUsuario;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripMenuItem alunoToolStripMenuItem;
     }
 }
 

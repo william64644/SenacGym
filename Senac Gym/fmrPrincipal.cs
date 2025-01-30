@@ -30,15 +30,27 @@ namespace Senac_Gym
             InitializeComponent();
         }
 
-        private void mnuCadastroUsuario_Click(object sender, EventArgs e)
+
+
+        private void btnConsultaIMC_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmImc());
+        }
+
+        private void mnuUsuarios_Click(object sender, EventArgs e)
         {
             //No click do menu, chamamos o método para abrir o formulário
             AbrirForm(new frmUsuario());
         }
 
-        private void btnConsultaIMC_Click(object sender, EventArgs e)
+        private void alunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirForm(new frmImc());
+            AbrirForm(new frmAluno());
+        }
+
+        private void mnuSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

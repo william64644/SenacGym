@@ -47,6 +47,8 @@
             this.lblAltura = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtAltura = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.txtStatus = new System.Windows.Forms.TextBox();
             this.grpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
             this.grpPesquisa.SuspendLayout();
@@ -55,7 +57,8 @@
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(10, 318);
+            this.btnGravar.Image = global::Senac_Gym.Properties.Resources.FloppyDisks;
+            this.btnGravar.Location = new System.Drawing.Point(41, 318);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(114, 41);
             this.btnGravar.TabIndex = 15;
@@ -95,7 +98,8 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(254, 318);
+            this.btnCancelar.Image = global::Senac_Gym.Properties.Resources.exit;
+            this.btnCancelar.Location = new System.Drawing.Point(285, 318);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(114, 41);
             this.btnCancelar.TabIndex = 17;
@@ -103,10 +107,12 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(132, 318);
+            this.btnLimpar.Image = global::Senac_Gym.Properties.Resources.eraser;
+            this.btnLimpar.Location = new System.Drawing.Point(163, 318);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(114, 41);
             this.btnLimpar.TabIndex = 16;
@@ -114,6 +120,7 @@
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // grpPesquisa
             // 
@@ -145,6 +152,8 @@
             // 
             // grpDImc
             // 
+            this.grpDImc.Controls.Add(this.txtStatus);
+            this.grpDImc.Controls.Add(this.lblStatus);
             this.grpDImc.Controls.Add(this.lblUsuario);
             this.grpDImc.Controls.Add(this.txtImc);
             this.grpDImc.Controls.Add(this.lblImc);
@@ -173,7 +182,7 @@
             // 
             // txtImc
             // 
-            this.txtImc.Location = new System.Drawing.Point(172, 80);
+            this.txtImc.Location = new System.Drawing.Point(121, 82);
             this.txtImc.MaxLength = 100;
             this.txtImc.Name = "txtImc";
             this.txtImc.ReadOnly = true;
@@ -184,7 +193,7 @@
             // lblImc
             // 
             this.lblImc.AutoSize = true;
-            this.lblImc.Location = new System.Drawing.Point(98, 83);
+            this.lblImc.Location = new System.Drawing.Point(40, 85);
             this.lblImc.Name = "lblImc";
             this.lblImc.Size = new System.Drawing.Size(68, 13);
             this.lblImc.TabIndex = 30;
@@ -205,7 +214,7 @@
             this.txtIdade.MaxLength = 100;
             this.txtIdade.Name = "txtIdade";
             this.txtIdade.ReadOnly = true;
-            this.txtIdade.Size = new System.Drawing.Size(60, 20);
+            this.txtIdade.Size = new System.Drawing.Size(94, 20);
             this.txtIdade.TabIndex = 23;
             this.txtIdade.TabStop = false;
             // 
@@ -216,6 +225,7 @@
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(60, 20);
             this.txtPeso.TabIndex = 22;
+            this.txtPeso.TextChanged += new System.EventHandler(this.txtPeso_TextChanged);
             // 
             // lblIdade
             // 
@@ -252,6 +262,26 @@
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.Size = new System.Drawing.Size(60, 20);
             this.txtAltura.TabIndex = 21;
+            this.txtAltura.TextChanged += new System.EventHandler(this.txtAltura_TextChanged);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(242, 85);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(37, 13);
+            this.lblStatus.TabIndex = 34;
+            this.lblStatus.Text = "Status";
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Location = new System.Drawing.Point(289, 82);
+            this.txtStatus.MaxLength = 100;
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(94, 20);
+            this.txtStatus.TabIndex = 35;
+            this.txtStatus.TabStop = false;
             // 
             // frmImc
             // 
@@ -302,5 +332,7 @@
         private System.Windows.Forms.Label lblImc;
         private System.Windows.Forms.TextBox txtImc;
         private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

@@ -18,6 +18,38 @@ namespace Senac_Gym
             InitializeComponent();
         }
 
+        private void calcularImc()
+        {
+            if (Global.isFloat(txtAltura.Text) && Global.isFloat(txtPeso.Text))
+            {
+                float peso = float.Parse(txtPeso.Text);
+                float altura = float.Parse(txtAltura.Text);
+                float imc = peso / (altura * altura);
+                txtImc.Text = imc.ToString();
+
+                string status;
+                if (imc > 30)
+                {
+                    status = "Obesidade";
+                } else if (imc >= 25)
+                {
+                    status = "Sobrepeso";
+                }
+                else if (imc >= 18.5)
+                {
+                    status = "Saudável";
+                } else
+                {
+                    status = "Abaixo do peso";
+                }
+                txtStatus.Text = status;
+            } else
+            {
+                txtImc.Clear();
+                txtStatus.Clear();
+            }
+        }
+
         private void CarregarGrid()
         {
             //definimos um bloco try/catch para garantir a execução
@@ -34,7 +66,7 @@ namespace Senac_Gym
                 grdDados.Columns[2].HeaderText = "Nome";
                 grdDados.Columns[3].HeaderText = "Altura";
                 grdDados.Columns[4].HeaderText = "Peso";
-                grdDados.Columns[6].HeaderText = "dataNascimento";
+                grdDados.Columns[6].HeaderText = "Nascimento";
                 //Largura das colunas
                 grdDados.Columns[2].Width = 100;
                 grdDados.Columns[3].Width = 100;
@@ -179,6 +211,33 @@ namespace Senac_Gym
                 MessageBox.Show("Erro-->" + ex.Message, "Erro",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtAltura_TextChanged(object sender, EventArgs e)
+        {
+            calcularImc();
+        }
+
+        private void txtPeso_TextChanged(object sender, EventArgs e)
+        {
+            calcularImc();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            imc = new Imc();
+            txtAltura.Clear();
+            txtIdade.Clear();
+            txtImc.Clear();
+            txtNome.Clear();
+            txtPeso.Clear();    
+            txtPesquisa.Clear();
+            txtPesquisa.Focus();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
