@@ -21,19 +21,19 @@ namespace Senac_Gym
             //Chamamos o método para ler as configurações do arquivo app.config
             //E montamos a string de conexão para acesso ao banco de dados
             Global.MontarStringConexao();
-            //Instanciamos um objeto do formulario de login para autenticarmos o usuário
-            frmLogin frm = new frmLogin();
-            //Exibimos o formulário em modo proprietário
-            frm.ShowDialog();
+            ////Instanciamos um objeto do formulario de login para autenticarmos o usuário
+            //frmLogin frm = new frmLogin();
+            ////Exibimos o formulário em modo proprietário
+            //frm.ShowDialog();
 
-            if (frm.DialogResult == DialogResult.OK)
-            {
-                //Caso o formulário tenha retornado Ok como DialogResult, prosseguimos
-                //com a execução da aplicação
-                Application.Run(new frmPrincipal());
-            }
+            //if (frm.DialogResult == DialogResult.OK)
+            //{
+            //    //Caso o formulário tenha retornado Ok como DialogResult, prosseguimos
+            //    //com a execução da aplicação
+            //    Application.Run(new frmPrincipal());
+            //}
 
-            //Application.Run(new frmImc());
+            Application.Run(new frmAtividade());
 
         }
     }

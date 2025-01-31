@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcessoBD.cs" />
+    <Compile Include="AlunoAtividade.cs" />
     <Compile Include="Aluno.cs" />
+    <Compile Include="Atividade.cs" />
     <Compile Include="fmrPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +62,12 @@
     </Compile>
     <Compile Include="frmAluno.Designer.cs">
       <DependentUpon>frmAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAtividade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAtividade.Designer.cs">
+      <DependentUpon>frmAtividade.cs</DependentUpon>
     </Compile>
     <Compile Include="frmImc.cs">
       <SubType>Form</SubType>
@@ -95,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAluno.resx">
       <DependentUpon>frmAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAtividade.resx">
+      <DependentUpon>frmAtividade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmImc.resx">
       <DependentUpon>frmImc.cs</DependentUpon>
