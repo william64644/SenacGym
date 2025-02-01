@@ -80,25 +80,25 @@
             this.groupBox1.Size = new System.Drawing.Size(724, 331);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Montagem de Atividades";
+            this.groupBox1.Text = " Atividades";
             // 
             // lblSerie
             // 
             this.lblSerie.AutoSize = true;
             this.lblSerie.Location = new System.Drawing.Point(578, 21);
             this.lblSerie.Name = "lblSerie";
-            this.lblSerie.Size = new System.Drawing.Size(31, 13);
+            this.lblSerie.Size = new System.Drawing.Size(36, 13);
             this.lblSerie.TabIndex = 9;
-            this.lblSerie.Text = "Série";
+            this.lblSerie.Text = "Séries";
             // 
             // lblRepeticao
             // 
             this.lblRepeticao.AutoSize = true;
-            this.lblRepeticao.Location = new System.Drawing.Point(660, 20);
+            this.lblRepeticao.Location = new System.Drawing.Point(654, 21);
             this.lblRepeticao.Name = "lblRepeticao";
-            this.lblRepeticao.Size = new System.Drawing.Size(56, 13);
+            this.lblRepeticao.Size = new System.Drawing.Size(61, 13);
             this.lblRepeticao.TabIndex = 8;
-            this.lblRepeticao.Text = "Repetição";
+            this.lblRepeticao.Text = "Repetições";
             // 
             // lblObservacao
             // 
@@ -120,18 +120,32 @@
             // 
             // txtRepeticao
             // 
-            this.txtRepeticao.Location = new System.Drawing.Point(663, 39);
+            this.txtRepeticao.Location = new System.Drawing.Point(657, 38);
             this.txtRepeticao.Name = "txtRepeticao";
             this.txtRepeticao.Size = new System.Drawing.Size(51, 20);
             this.txtRepeticao.TabIndex = 5;
             // 
             // cboTreino
             // 
+            this.cboTreino.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboTreino.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboTreino.FormattingEnabled = true;
+            this.cboTreino.Items.AddRange(new object[] {
+            "Treino A",
+            "Treino B",
+            "Treino C",
+            "Treino D",
+            "Treino E",
+            "Treino F",
+            "Treino G"});
             this.cboTreino.Location = new System.Drawing.Point(9, 39);
             this.cboTreino.Name = "cboTreino";
             this.cboTreino.Size = new System.Drawing.Size(71, 21);
             this.cboTreino.TabIndex = 6;
+            this.cboTreino.SelectedIndexChanged += new System.EventHandler(this.cboTreino_SelectedIndexChanged);
+            this.cboTreino.SelectionChangeCommitted += new System.EventHandler(this.cboTreino_SelectionChangeCommitted);
+            this.cboTreino.SelectedValueChanged += new System.EventHandler(this.cboTreino_SelectedValueChanged);
+            this.cboTreino.TextChanged += new System.EventHandler(this.cboTreino_TextChanged);
             // 
             // txtSerie
             // 
@@ -162,6 +176,7 @@
             this.grdAtividade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdAtividade.Size = new System.Drawing.Size(712, 203);
             this.grdAtividade.TabIndex = 1;
+            this.grdAtividade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAtividade_CellClick);
             // 
             // lblExercicio
             // 
@@ -174,6 +189,8 @@
             // 
             // cboExercicio
             // 
+            this.cboExercicio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboExercicio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboExercicio.FormattingEnabled = true;
             this.cboExercicio.Location = new System.Drawing.Point(354, 38);
             this.cboExercicio.Name = "cboExercicio";
@@ -191,6 +208,8 @@
             // 
             // cboMusculo
             // 
+            this.cboMusculo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboMusculo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMusculo.FormattingEnabled = true;
             this.cboMusculo.Location = new System.Drawing.Point(118, 39);
             this.cboMusculo.Name = "cboMusculo";
@@ -253,6 +272,7 @@
             this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGravar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnCancelar
             // 
@@ -306,6 +326,7 @@
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // frmAtividade
             // 

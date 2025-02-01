@@ -16,6 +16,9 @@ namespace Senac_Gym
         public int idMusculo { get; set; }
         public int idExercicio { get; set; }
         public int idAluno { get; set; }
+        public string musculo { get; set; }
+        public string exercicio { get; set; }
+        public string aluno { get; set; }
         public string comentario { get; set; }
         public int serie { get; set; }
         public int repeticao { get; set; }
@@ -27,6 +30,9 @@ namespace Senac_Gym
             idMusculo = 0;
             idExercicio = 0;
             idAluno = 0;
+            musculo = string.Empty;
+            exercicio = string.Empty;
+            aluno = string.Empty;
             comentario = string.Empty;
             serie = 0;
             repeticao = 0;
@@ -44,14 +50,31 @@ namespace Senac_Gym
             try
             {
                 lista.Clear();
-                sql = "SELECT id, idMusculo, idExercicio, idAluno, comentario, serie, repeticao, treino \n";
-                sql += "FROM tblAtividade \n";
+                sql = "SELECT ati.id atividadeId, idMusculo, idExercicio, idAluno, mus.nome MusculoNome, exe.nome ExercicioNome, alu.nome alunoNome, comentario, serie, repeticao, treino \n";
+                sql += "FROM tblAtividade ati \n";
+                sql += "inner join tblMusculo mus on mus.id = ati.idMusculo \n";
+                sql += "inner join tblExercicio exe on exe.id = ati.idExercicio \n";
+                sql += "inner join tblAluno alu on alu.id = ati.idAluno \n";
 
+
+
+                sql += "where 1=1 \n";
                 if (id != 0)
                 {
-                    sql += "WHERE id = @id \n";
+                    sql += "and ati.id = @id \n";
                     lista.Add(new SqlParameter("@id", id));
                 }
+                if (idAluno != 0)
+                {
+                    sql += "and idAluno = @idAluno \n";
+                    lista.Add(new SqlParameter("@idAluno", idAluno));
+                }
+                if (treino != "")
+                {
+                    sql += "and treino = @treino \n";
+                    lista.Add(new SqlParameter("@treino", treino));
+                }
+
 
                 sql += "ORDER BY treino";
                 dt = acesso.ConsultarSQL(sql, lista);
@@ -59,11 +82,14 @@ namespace Senac_Gym
                 // Preenche propriedades se encontrar registro único
                 if (dt.Rows.Count > 0 && id != 0)
                 {
-                    id = Convert.ToInt32(dt.Rows[0]["id"]);
+                    id = Convert.ToInt32(dt.Rows[0]["atividadeId"]);
                     idMusculo = Convert.ToInt32(dt.Rows[0]["idMusculo"]);
                     idExercicio = Convert.ToInt32(dt.Rows[0]["idExercicio"]);
                     idAluno = Convert.ToInt32(dt.Rows[0]["idAluno"]);
-                    comentario = dt.Rows[0]["telefone"].ToString();
+                    musculo = dt.Rows[0]["MusculoNome"].ToString();
+                    exercicio = dt.Rows[0]["ExercicioNome"].ToString();
+                    aluno = dt.Rows[0]["alunoNome"].ToString();
+                    comentario = dt.Rows[0]["comentario"].ToString();
                     serie = Convert.ToInt32(dt.Rows[0]["serie"]);
                     repeticao = Convert.ToInt32(dt.Rows[0]["repeticao"]);
                     treino = dt.Rows[0]["treino"].ToString();
@@ -88,28 +114,34 @@ namespace Senac_Gym
                 lista.Clear();
                 if (id == 0)
                 {
-                    sql = "INSERT INTO tblAluno \n";
-                    sql += "(nome, telefone, email, dataNascimento) \n";
+                    sql = "INSERT INTO tblAtividade \n";
+                    sql += "(idExercicio, idMusculo, idAluno, comentario, serie, repeticao, treino) \n";
                     sql += "VALUES \n";
-                    sql += "(@nome, @telefone, @email, @dataNascimento)";
+                    sql += "(@idExercicio, @idMusculo, @idAluno, @comentario, @serie, @repeticao, @treino)";
                 }
                 else
                 {
-                    sql = "UPDATE tblAluno \n";
+                    sql = "UPDATE tblAtividade \n";
                     sql += "SET \n";
-                    sql += "nome = @nome, \n";
-                    sql += "telefone = @telefone, \n";
-                    sql += "email = @email, \n";
-                    sql += "dataNascimento = @dataNascimento \n";
+                    sql += "idExercicio = @idExercicio, \n";
+                    sql += "idMusculo = @idMusculo, \n";
+                    sql += "idAluno = @idAluno, \n";
+                    sql += "comentario = @comentario, \n";
+                    sql += "serie = @serie, \n";
+                    sql += "repeticao = @repeticao, \n";
+                    sql += "treino = @treino \n";
                     sql += "WHERE id = @id";
                     lista.Add(new SqlParameter("@id", id));
                 }
 
                 // Parâmetros comuns
-                //lista.Add(new SqlParameter("@nome", nome));
-                //lista.Add(new SqlParameter("@telefone", celular));
-                //lista.Add(new SqlParameter("@email", email));
-                //lista.Add(new SqlParameter("@dataNascimento", dataNascimento));
+                lista.Add(new SqlParameter("@idExercicio", idExercicio));
+                lista.Add(new SqlParameter("@idMusculo", idMusculo));
+                lista.Add(new SqlParameter("@idAluno", idAluno));
+                lista.Add(new SqlParameter("@comentario", comentario));
+                lista.Add(new SqlParameter("@serie", serie));
+                lista.Add(new SqlParameter("@repeticao", repeticao));
+                lista.Add(new SqlParameter("@treino", treino));
 
                 acesso.ExecutarSQL(sql, lista);
             }

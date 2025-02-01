@@ -56,17 +56,17 @@ namespace Senac_Gym
                 grdAtividade.Columns[1].Visible = false; // Id
                 grdAtividade.Columns[2].Visible = false; // Id
                 grdAtividade.Columns[3].Visible = false; // Id
-                grdAtividade.Columns[4].HeaderText = "Comentário";
-                grdAtividade.Columns[5].HeaderText = "Séries";
-                grdAtividade.Columns[6].HeaderText = "Repetições";
-                grdAtividade.Columns[7].HeaderText = "Treino";
+                grdAtividade.Columns[7].HeaderText = "Comentário";
+                grdAtividade.Columns[8].HeaderText = "Séries";
+                grdAtividade.Columns[9].HeaderText = "Repetições";
+                grdAtividade.Columns[10].HeaderText = "Treino";
 
                 //
                 // Ajuste de largura
-                grdAtividade.Columns[4].Width = 518;
-                grdAtividade.Columns[5].Width = 48;
-                grdAtividade.Columns[6].Width = 68;
-                grdAtividade.Columns[7].Width = 58;
+                grdAtividade.Columns[7].Width = 518;
+                grdAtividade.Columns[8].Width = 48;
+                grdAtividade.Columns[9].Width = 68;
+                grdAtividade.Columns[10].Width = 58;
 
             }
             catch (Exception ex)
@@ -87,11 +87,16 @@ namespace Senac_Gym
         {
             try
             {
+                LimparAtividade();
                 aluno = new AlunoAtividade();
                 aluno.id = Convert.ToInt32(grdAluno.SelectedRows[0].Cells[0].Value);
                 aluno.Consultar();
                 txtNome.Text = aluno.nome;
-                consultarAtividades();
+                atividade = new Atividade();
+                atividade.idAluno = aluno.id;
+                carregarGridAtividade();
+
+                
             }
             catch (Exception ex)
             {
@@ -105,18 +110,134 @@ namespace Senac_Gym
             aluno = new AlunoAtividade();
             aluno.pesquisa = txtPesquisa.Text;
             CarregarGridAluno();
+            cboMusculo.DataSource = Musculo.Consultar();
+            cboMusculo.DisplayMember = "nome";
+            cboMusculo.ValueMember = "id";
+            cboMusculo.SelectedIndex = -1;
+
+            cboExercicio.DataSource = Exercicio.Consultar();
+            cboExercicio.DisplayMember = "nome";
+            cboExercicio.ValueMember = "id";
+            cboExercicio.SelectedIndex = -1;
         }
 
-        private void consultarAtividades()
+        private void preencherFormularioAtividade()
+        {
+            cboTreino.Text = atividade.treino;
+            cboExercicio.Text = atividade.exercicio;
+            cboMusculo.Text = atividade.musculo;
+            txtNome.Text = atividade.aluno;
+            txtObservacao.Text = atividade.comentario;
+            txtRepeticao.Text = atividade.repeticao.ToString();
+            txtSerie.Text = atividade.serie.ToString();
+           
+        }
+
+        private void PreencherClasse()
+        {
+            atividade.idMusculo = (int)cboMusculo.SelectedValue;
+            atividade.idExercicio = (int)cboExercicio.SelectedValue;
+            atividade.idAluno = aluno.id;
+            atividade.comentario = txtObservacao.Text;
+            atividade.serie = int.Parse(txtSerie.Text);
+            atividade.repeticao = int.Parse(txtRepeticao.Text);
+            atividade.treino = cboTreino.Text;
+        }
+
+        private void grdAtividade_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             atividade = new Atividade();
-            if (aluno.id != 0)
-            {
-                atividade.idAluno = aluno.id;
-            }
+
+            atividade.id = Convert.ToInt32(grdAtividade.SelectedRows[0].Cells[0].Value);
+
             atividade.Consultar();
+            preencherFormularioAtividade();
+        }
+
+
+        private void LimparCampos()
+        {
+            LimparAluno();
+            LimparAtividade();
+        }
+
+        private void LimparAluno()
+        {
+            // Limpa os campos de texto relacionados ao aluno
+            txtNome.Text = string.Empty;
+
+            // Limpa a seleção do grid de alunos
+            grdAluno.DataSource = null;
+            grdAluno.ClearSelection();
+            grdAluno.Rows.Clear();
+
+            // Limpa a pesquisa
+            txtPesquisa.Text = string.Empty;
+
+            // Limpa a instância de aluno
+            aluno = new AlunoAtividade();
+            
+        }
+        private void LimparAtividade()
+        {
+            // Limpa os campos de texto relacionados à atividade
+            txtObservacao.Text = string.Empty;
+            txtRepeticao.Text = string.Empty;
+            txtSerie.Text = string.Empty;
+
+            // Limpa os comboboxes relacionados à atividade
+            cboMusculo.SelectedIndex = -1;
+            cboExercicio.SelectedIndex = -1;
+            cboTreino.SelectedIndex = -1;
+
+            // Limpa a seleção do grid de atividades
+            grdAtividade.DataSource = null;
+            grdAtividade.ClearSelection();
+            grdAtividade.Rows.Clear();
+
+            // Limpa a instância de atividade
+            atividade = new Atividade();
+
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            PreencherClasse();
+            atividade.Gravar();
+            atividade.id = 0;
             carregarGridAtividade();
         }
 
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+
+
+        private void cboTreino_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cboTreino_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cboTreino_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cboTreino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            atividade = new Atividade();
+
+            atividade.idAluno = aluno.id;
+            atividade.treino = cboTreino.Text;
+            grdAtividade.DataSource = atividade.Consultar();
+            preencherFormularioAtividade();
+        }
     }
 }
