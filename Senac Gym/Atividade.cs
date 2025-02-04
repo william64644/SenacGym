@@ -150,6 +150,25 @@ namespace Senac_Gym
                 throw new Exception(ex.Message);
             }
         }
+
+        public void ExcluirAtividade()
+        {
+            try
+            {
+                if (id != 0)
+                {
+                    lista.Clear();
+                    sql = "DELETE FROM tblAtividade WHERE id = @id";
+                    lista.Add(new SqlParameter("@id", id));
+
+                    acesso.ExecutarSQL(sql, lista);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
     
 }

@@ -14,10 +14,13 @@ namespace Senac_Gym
     {
         private AlunoAtividade aluno;
         private Atividade atividade;
+        bool consultarTreino = true;
+        DataGridViewPrinter printer;
         public frmAtividade()
         {
             InitializeComponent();
             aluno = new AlunoAtividade();
+            printer = new DataGridViewPrinter(grdAtividade);
             //atividade = new Atividade();
         }
 
@@ -50,24 +53,30 @@ namespace Senac_Gym
         {
             try
             {
+                // Carrega os dados da atividade
                 grdAtividade.DataSource = atividade.Consultar();
-                // Ajuste das colunas conforme estrutura da classe Aluno
-                grdAtividade.Columns[0].Visible = false; // Id
-                grdAtividade.Columns[1].Visible = false; // Id
-                grdAtividade.Columns[2].Visible = false; // Id
-                grdAtividade.Columns[3].Visible = false; // Id
-                grdAtividade.Columns[7].HeaderText = "Comentário";
-                grdAtividade.Columns[8].HeaderText = "Séries";
-                grdAtividade.Columns[9].HeaderText = "Repetições";
-                grdAtividade.Columns[10].HeaderText = "Treino";
 
-                //
-                // Ajuste de largura
-                grdAtividade.Columns[7].Width = 518;
-                grdAtividade.Columns[8].Width = 48;
-                grdAtividade.Columns[9].Width = 68;
-                grdAtividade.Columns[10].Width = 58;
+                // Oculta as colunas que não são relevantes para o usuário
+                grdAtividade.Columns["atividadeId"].Visible = false;    // Oculta a coluna atividadeId
+                grdAtividade.Columns["idMusculo"].Visible = false;      // Oculta a coluna idMusculo
+                grdAtividade.Columns["idExercicio"].Visible = false;    // Oculta a coluna idExercicio
+                grdAtividade.Columns["idAluno"].Visible = false;        // Oculta a coluna idAluno
+                grdAtividade.Columns["alunoNome"].Visible = false;
+                grdAtividade.Columns["treino"].Visible = false;
 
+                // Ajusta os cabeçalhos das colunas para nomes mais amigáveis
+                grdAtividade.Columns["MusculoNome"].HeaderText = "Músculo";
+                grdAtividade.Columns["ExercicioNome"].HeaderText = "Exercício";
+                grdAtividade.Columns["comentario"].HeaderText = "Comentário";
+                grdAtividade.Columns["serie"].HeaderText = "Séries";
+                grdAtividade.Columns["repeticao"].HeaderText = "Repetições";
+
+                // Ajusta a largura das colunas para melhor visualização
+                grdAtividade.Columns["MusculoNome"].Width = 54;
+                grdAtividade.Columns["ExercicioNome"].Width = 119;
+                grdAtividade.Columns["comentario"].Width = 403;
+                grdAtividade.Columns["serie"].Width = 41;
+                grdAtividade.Columns["repeticao"].Width = 70;
             }
             catch (Exception ex)
             {
@@ -123,6 +132,7 @@ namespace Senac_Gym
 
         private void preencherFormularioAtividade()
         {
+            consultarTreino = false;
             cboTreino.Text = atividade.treino;
             cboExercicio.Text = atividade.exercicio;
             cboMusculo.Text = atividade.musculo;
@@ -130,7 +140,9 @@ namespace Senac_Gym
             txtObservacao.Text = atividade.comentario;
             txtRepeticao.Text = atividade.repeticao.ToString();
             txtSerie.Text = atividade.serie.ToString();
-           
+            consultarTreino = true;
+
+
         }
 
         private void PreencherClasse()
@@ -166,10 +178,10 @@ namespace Senac_Gym
             // Limpa os campos de texto relacionados ao aluno
             txtNome.Text = string.Empty;
 
-            // Limpa a seleção do grid de alunos
-            grdAluno.DataSource = null;
-            grdAluno.ClearSelection();
-            grdAluno.Rows.Clear();
+            //// Limpa a seleção do grid de alunos
+            //grdAluno.DataSource = null;
+            //grdAluno.ClearSelection();
+            //grdAluno.Rows.Clear();
 
             // Limpa a pesquisa
             txtPesquisa.Text = string.Empty;
@@ -213,25 +225,12 @@ namespace Senac_Gym
             LimparCampos();
         }
 
-
-
-        private void cboTreino_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cboTreino_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cboTreino_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void cboTreino_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!consultarTreino)
+            {
+                return;
+            }
             atividade = new Atividade();
 
             atividade.idAluno = aluno.id;
@@ -239,5 +238,38 @@ namespace Senac_Gym
             grdAtividade.DataSource = atividade.Consultar();
             preencherFormularioAtividade();
         }
+
+        private void grdAtividade_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            // Cast the sender to a DataGridView
+            DataGridView dataGridView = sender as DataGridView;
+
+            // Check if the cast was successful
+            if (dataGridView != null)
+            {
+                // Iterate through each column in the DataGridView
+                foreach (DataGridViewColumn column in dataGridView.Columns)
+                {
+                    // Print the column header and its width
+                    Console.WriteLine($"Column '{column.HeaderText}' width: {column.Width}");
+                }
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            grdAtividade.ClearSelection();
+            printer.Print();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            PreencherClasse();
+            atividade.ExcluirAtividade();
+            atividade.id = 0;
+            carregarGridAtividade();
+        }
+
+
     }
 }

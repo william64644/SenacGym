@@ -51,6 +51,7 @@
     <Compile Include="AlunoAtividade.cs" />
     <Compile Include="Aluno.cs" />
     <Compile Include="Atividade.cs" />
+    <Compile Include="DataGridViewPrinter.cs" />
     <Compile Include="Exercicio.cs" />
     <Compile Include="fmrPrincipal.cs">
       <SubType>Form</SubType>

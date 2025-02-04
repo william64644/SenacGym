@@ -52,6 +52,8 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAtividade)).BeginInit();
             this.grpLista.SuspendLayout();
@@ -77,7 +79,7 @@
             this.groupBox1.Controls.Add(this.cboMusculo);
             this.groupBox1.Location = new System.Drawing.Point(6, 180);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(724, 331);
+            this.groupBox1.Size = new System.Drawing.Size(711, 331);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Atividades";
@@ -85,7 +87,7 @@
             // lblSerie
             // 
             this.lblSerie.AutoSize = true;
-            this.lblSerie.Location = new System.Drawing.Point(578, 21);
+            this.lblSerie.Location = new System.Drawing.Point(557, 24);
             this.lblSerie.Name = "lblSerie";
             this.lblSerie.Size = new System.Drawing.Size(36, 13);
             this.lblSerie.TabIndex = 9;
@@ -94,7 +96,7 @@
             // lblRepeticao
             // 
             this.lblRepeticao.AutoSize = true;
-            this.lblRepeticao.Location = new System.Drawing.Point(654, 21);
+            this.lblRepeticao.Location = new System.Drawing.Point(633, 24);
             this.lblRepeticao.Name = "lblRepeticao";
             this.lblRepeticao.Size = new System.Drawing.Size(61, 13);
             this.lblRepeticao.TabIndex = 8;
@@ -120,7 +122,7 @@
             // 
             // txtRepeticao
             // 
-            this.txtRepeticao.Location = new System.Drawing.Point(657, 38);
+            this.txtRepeticao.Location = new System.Drawing.Point(636, 41);
             this.txtRepeticao.Name = "txtRepeticao";
             this.txtRepeticao.Size = new System.Drawing.Size(51, 20);
             this.txtRepeticao.TabIndex = 5;
@@ -143,13 +145,10 @@
             this.cboTreino.Size = new System.Drawing.Size(71, 21);
             this.cboTreino.TabIndex = 6;
             this.cboTreino.SelectedIndexChanged += new System.EventHandler(this.cboTreino_SelectedIndexChanged);
-            this.cboTreino.SelectionChangeCommitted += new System.EventHandler(this.cboTreino_SelectionChangeCommitted);
-            this.cboTreino.SelectedValueChanged += new System.EventHandler(this.cboTreino_SelectedValueChanged);
-            this.cboTreino.TextChanged += new System.EventHandler(this.cboTreino_TextChanged);
             // 
             // txtSerie
             // 
-            this.txtSerie.Location = new System.Drawing.Point(577, 40);
+            this.txtSerie.Location = new System.Drawing.Point(556, 43);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(51, 20);
             this.txtSerie.TabIndex = 4;
@@ -158,7 +157,7 @@
             // 
             this.txtObservacao.Location = new System.Drawing.Point(12, 87);
             this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(702, 20);
+            this.txtObservacao.Size = new System.Drawing.Size(686, 20);
             this.txtObservacao.TabIndex = 1;
             // 
             // grdAtividade
@@ -174,14 +173,15 @@
             this.grdAtividade.RowHeadersWidth = 62;
             this.grdAtividade.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdAtividade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdAtividade.Size = new System.Drawing.Size(712, 203);
+            this.grdAtividade.Size = new System.Drawing.Size(692, 203);
             this.grdAtividade.TabIndex = 1;
             this.grdAtividade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAtividade_CellClick);
+            this.grdAtividade.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.grdAtividade_ColumnWidthChanged);
             // 
             // lblExercicio
             // 
             this.lblExercicio.AutoSize = true;
-            this.lblExercicio.Location = new System.Drawing.Point(351, 22);
+            this.lblExercicio.Location = new System.Drawing.Point(336, 25);
             this.lblExercicio.Name = "lblExercicio";
             this.lblExercicio.Size = new System.Drawing.Size(50, 13);
             this.lblExercicio.TabIndex = 3;
@@ -192,7 +192,7 @@
             this.cboExercicio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboExercicio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboExercicio.FormattingEnabled = true;
-            this.cboExercicio.Location = new System.Drawing.Point(354, 38);
+            this.cboExercicio.Location = new System.Drawing.Point(339, 41);
             this.cboExercicio.Name = "cboExercicio";
             this.cboExercicio.Size = new System.Drawing.Size(190, 21);
             this.cboExercicio.TabIndex = 2;
@@ -200,7 +200,7 @@
             // lblMusculo
             // 
             this.lblMusculo.AutoSize = true;
-            this.lblMusculo.Location = new System.Drawing.Point(115, 24);
+            this.lblMusculo.Location = new System.Drawing.Point(109, 26);
             this.lblMusculo.Name = "lblMusculo";
             this.lblMusculo.Size = new System.Drawing.Size(47, 13);
             this.lblMusculo.TabIndex = 1;
@@ -211,7 +211,7 @@
             this.cboMusculo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboMusculo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboMusculo.FormattingEnabled = true;
-            this.cboMusculo.Location = new System.Drawing.Point(118, 39);
+            this.cboMusculo.Location = new System.Drawing.Point(112, 41);
             this.cboMusculo.Name = "cboMusculo";
             this.cboMusculo.Size = new System.Drawing.Size(190, 21);
             this.cboMusculo.TabIndex = 0;
@@ -221,7 +221,7 @@
             this.grpLista.Controls.Add(this.grdAluno);
             this.grpLista.Location = new System.Drawing.Point(9, 68);
             this.grpLista.Name = "grpLista";
-            this.grpLista.Size = new System.Drawing.Size(718, 106);
+            this.grpLista.Size = new System.Drawing.Size(708, 106);
             this.grpLista.TabIndex = 37;
             this.grpLista.TabStop = false;
             this.grpLista.Text = "Alunos Cadastrados";
@@ -239,7 +239,7 @@
             this.grdAluno.RowHeadersWidth = 62;
             this.grdAluno.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdAluno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdAluno.Size = new System.Drawing.Size(699, 77);
+            this.grdAluno.Size = new System.Drawing.Size(689, 77);
             this.grdAluno.TabIndex = 0;
             this.grdAluno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdAluno_CellClick);
             // 
@@ -264,7 +264,7 @@
             // btnGravar
             // 
             this.btnGravar.Image = global::Senac_Gym.Properties.Resources.FloppyDisks;
-            this.btnGravar.Location = new System.Drawing.Point(374, 523);
+            this.btnGravar.Location = new System.Drawing.Point(342, 519);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(115, 41);
             this.btnGravar.TabIndex = 40;
@@ -277,7 +277,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Image = global::Senac_Gym.Properties.Resources.exit;
-            this.btnCancelar.Location = new System.Drawing.Point(618, 523);
+            this.btnCancelar.Location = new System.Drawing.Point(586, 519);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(115, 41);
             this.btnCancelar.TabIndex = 42;
@@ -292,7 +292,7 @@
             this.grpAluno.Controls.Add(this.txtNome);
             this.grpAluno.Location = new System.Drawing.Point(360, 9);
             this.grpAluno.Name = "grpAluno";
-            this.grpAluno.Size = new System.Drawing.Size(367, 53);
+            this.grpAluno.Size = new System.Drawing.Size(357, 53);
             this.grpAluno.TabIndex = 39;
             this.grpAluno.TabStop = false;
             this.grpAluno.Text = "Aluno Selecionado";
@@ -312,13 +312,13 @@
             this.txtNome.MaxLength = 100;
             this.txtNome.Name = "txtNome";
             this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(299, 20);
+            this.txtNome.Size = new System.Drawing.Size(289, 20);
             this.txtNome.TabIndex = 0;
             // 
             // btnLimpar
             // 
             this.btnLimpar.Image = global::Senac_Gym.Properties.Resources.eraser;
-            this.btnLimpar.Location = new System.Drawing.Point(495, 523);
+            this.btnLimpar.Location = new System.Drawing.Point(463, 519);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(115, 41);
             this.btnLimpar.TabIndex = 41;
@@ -328,11 +328,39 @@
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Image = global::Senac_Gym.Properties.Resources.Minus_16;
+            this.btnExcluir.Location = new System.Drawing.Point(211, 519);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(125, 41);
+            this.btnExcluir.TabIndex = 43;
+            this.btnExcluir.Text = "Exluir Atividade";
+            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::Senac_Gym.Properties.Resources.check;
+            this.btnImprimir.Location = new System.Drawing.Point(80, 519);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(125, 41);
+            this.btnImprimir.TabIndex = 44;
+            this.btnImprimir.Text = "Imprimir Treino";
+            this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // frmAtividade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 572);
+            this.ClientSize = new System.Drawing.Size(730, 572);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpLista);
             this.Controls.Add(this.grpPesquisa);
@@ -382,5 +410,7 @@
         private System.Windows.Forms.Label lblObservacao;
         private System.Windows.Forms.Label lblSerie;
         private System.Windows.Forms.Label lblRepeticao;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
