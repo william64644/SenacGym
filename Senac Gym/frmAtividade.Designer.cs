@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAtividade));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblSerie = new System.Windows.Forms.Label();
             this.lblRepeticao = new System.Windows.Forms.Label();
@@ -368,8 +369,9 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.grpAluno);
             this.Controls.Add(this.btnLimpar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAtividade";
-            this.Text = "Atividade";
+            this.Text = "Senac Gym - Atividades";
             this.Load += new System.EventHandler(this.frmAtividade_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

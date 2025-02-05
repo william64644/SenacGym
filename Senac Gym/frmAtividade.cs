@@ -74,7 +74,7 @@ namespace Senac_Gym
                 // Ajusta a largura das colunas para melhor visualização
                 grdAtividade.Columns["MusculoNome"].Width = 54;
                 grdAtividade.Columns["ExercicioNome"].Width = 119;
-                grdAtividade.Columns["comentario"].Width = 403;
+                grdAtividade.Columns["comentario"].Width = 406;
                 grdAtividade.Columns["serie"].Width = 41;
                 grdAtividade.Columns["repeticao"].Width = 70;
             }

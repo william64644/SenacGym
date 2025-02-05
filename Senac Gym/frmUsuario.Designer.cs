@@ -288,7 +288,7 @@
             this.MinimizeBox = false;
             this.Name = "frmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Senac - Happy Smile - Cadastro de Usuários";
+            this.Text = "Senac Gym - Cadastro de Usuários";
             this.Load += new System.EventHandler(this.frmUsuario_Load);
             this.grpStatus.ResumeLayout(false);
             this.grpStatus.PerformLayout();

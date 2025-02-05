@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImc));
             this.btnGravar = new System.Windows.Forms.Button();
             this.grpLista = new System.Windows.Forms.GroupBox();
             this.grdDados = new System.Windows.Forms.DataGridView();
@@ -37,6 +38,8 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.grpDImc = new System.Windows.Forms.GroupBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.txtImc = new System.Windows.Forms.TextBox();
             this.lblImc = new System.Windows.Forms.Label();
@@ -47,8 +50,6 @@
             this.lblAltura = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtAltura = new System.Windows.Forms.TextBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.txtStatus = new System.Windows.Forms.TextBox();
             this.grpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
             this.grpPesquisa.SuspendLayout();
@@ -171,6 +172,25 @@
             this.grpDImc.TabStop = false;
             this.grpDImc.Text = "Gravar IMC";
             // 
+            // txtStatus
+            // 
+            this.txtStatus.Location = new System.Drawing.Point(289, 82);
+            this.txtStatus.MaxLength = 100;
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(94, 20);
+            this.txtStatus.TabIndex = 35;
+            this.txtStatus.TabStop = false;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(242, 85);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(37, 13);
+            this.lblStatus.TabIndex = 34;
+            this.lblStatus.Text = "Status";
+            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -264,25 +284,6 @@
             this.txtAltura.TabIndex = 21;
             this.txtAltura.TextChanged += new System.EventHandler(this.txtAltura_TextChanged);
             // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(242, 85);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(37, 13);
-            this.lblStatus.TabIndex = 34;
-            this.lblStatus.Text = "Status";
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Location = new System.Drawing.Point(289, 82);
-            this.txtStatus.MaxLength = 100;
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(94, 20);
-            this.txtStatus.TabIndex = 35;
-            this.txtStatus.TabStop = false;
-            // 
             // frmImc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,11 +296,12 @@
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.grpPesquisa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmImc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IMC Alunos";
+            this.Text = "Senac Gym - IMC Alunos";
             this.Load += new System.EventHandler(this.frmImc_Load);
             this.grpLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).EndInit();

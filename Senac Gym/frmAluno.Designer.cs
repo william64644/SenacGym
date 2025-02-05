@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAluno));
             this.dateTimePickerNascimento = new System.Windows.Forms.DateTimePicker();
             this.lblNascimento = new System.Windows.Forms.Label();
             this.lblCelular = new System.Windows.Forms.Label();
@@ -244,8 +245,9 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.grpDados);
             this.Controls.Add(this.grpLista);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAluno";
-            this.Text = "frmAluno";
+            this.Text = "Senac Gym - Alunos";
             this.Load += new System.EventHandler(this.frmAluno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).EndInit();
             this.grpPesquisa.ResumeLayout(false);

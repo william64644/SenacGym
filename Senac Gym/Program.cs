@@ -33,7 +33,7 @@ namespace Senac_Gym
             //    Application.Run(new frmPrincipal());
             //}
 
-            Application.Run(new frmAtividade());
+            Application.Run(new frmPagamento());
 
         }
     }
