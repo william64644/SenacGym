@@ -72,7 +72,7 @@ namespace Senac_Gym
                     id = Convert.ToInt32(dt.Rows[0]["id"]);
                     nome = dt.Rows[0]["nome"].ToString();
                     descricao = dt.Rows[0]["descricao"].ToString();
-                    valor = Convert.ToDecimal(dt.Rows[0]["valorPagamento"]);
+                    valor = Convert.ToDecimal(dt.Rows[0]["valor"]);
                     //dataPagamento = DateTime.ParseExact(dt.Rows[0]["dataNascimento"].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
                     duracao = Convert.ToInt32(dt.Rows[0]["duracao"]);
 

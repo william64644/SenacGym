@@ -52,5 +52,10 @@ namespace Senac_Gym
         {
             Close();
         }
+
+        private void btnTreino_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmAtividade());
+        }
     }
 }

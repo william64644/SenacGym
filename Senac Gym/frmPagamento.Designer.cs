@@ -28,7 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPagamento));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.lblValor = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.lblDias = new System.Windows.Forms.Label();
+            this.cboPlano = new System.Windows.Forms.ComboBox();
+            this.txtDias = new System.Windows.Forms.TextBox();
             this.grpLista = new System.Windows.Forms.GroupBox();
             this.grdAluno = new System.Windows.Forms.DataGridView();
             this.grpPesquisa = new System.Windows.Forms.GroupBox();
@@ -40,16 +50,7 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.cboPlano = new System.Windows.Forms.ComboBox();
-            this.lblDias = new System.Windows.Forms.Label();
-            this.txtDias = new System.Windows.Forms.TextBox();
-            this.lblValor = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.lblDescricao = new System.Windows.Forms.Label();
             this.grdPagamento = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.grpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAluno)).BeginInit();
@@ -75,6 +76,89 @@
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Plano";
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.Location = new System.Drawing.Point(12, 71);
+            this.txtDescricao.MaxLength = 100;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.ReadOnly = true;
+            this.txtDescricao.Size = new System.Drawing.Size(706, 20);
+            this.txtDescricao.TabIndex = 55;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(474, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Status";
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Location = new System.Drawing.Point(515, 19);
+            this.txtStatus.MaxLength = 100;
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(203, 20);
+            this.txtStatus.TabIndex = 53;
+            // 
+            // lblDescricao
+            // 
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Location = new System.Drawing.Point(9, 48);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(55, 13);
+            this.lblDescricao.TabIndex = 52;
+            this.lblDescricao.Text = "Descrição";
+            // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Location = new System.Drawing.Point(340, 22);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(31, 13);
+            this.lblValor.TabIndex = 24;
+            this.lblValor.Text = "Valor";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(381, 19);
+            this.txtValor.MaxLength = 100;
+            this.txtValor.Name = "txtValor";
+            this.txtValor.ReadOnly = true;
+            this.txtValor.Size = new System.Drawing.Size(82, 20);
+            this.txtValor.TabIndex = 23;
+            // 
+            // lblDias
+            // 
+            this.lblDias.AutoSize = true;
+            this.lblDias.Location = new System.Drawing.Point(220, 23);
+            this.lblDias.Name = "lblDias";
+            this.lblDias.Size = new System.Drawing.Size(28, 13);
+            this.lblDias.TabIndex = 22;
+            this.lblDias.Text = "Dias";
+            // 
+            // cboPlano
+            // 
+            this.cboPlano.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboPlano.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboPlano.FormattingEnabled = true;
+            this.cboPlano.Location = new System.Drawing.Point(12, 19);
+            this.cboPlano.Name = "cboPlano";
+            this.cboPlano.Size = new System.Drawing.Size(196, 21);
+            this.cboPlano.TabIndex = 1;
+            this.cboPlano.SelectedIndexChanged += new System.EventHandler(this.cboPlano_SelectedIndexChanged);
+            // 
+            // txtDias
+            // 
+            this.txtDias.Location = new System.Drawing.Point(256, 19);
+            this.txtDias.MaxLength = 100;
+            this.txtDias.Name = "txtDias";
+            this.txtDias.ReadOnly = true;
+            this.txtDias.Size = new System.Drawing.Size(68, 20);
+            this.txtDias.TabIndex = 21;
             // 
             // grpLista
             // 
@@ -198,61 +282,6 @@
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
             // 
-            // cboPlano
-            // 
-            this.cboPlano.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboPlano.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboPlano.FormattingEnabled = true;
-            this.cboPlano.Location = new System.Drawing.Point(12, 19);
-            this.cboPlano.Name = "cboPlano";
-            this.cboPlano.Size = new System.Drawing.Size(196, 21);
-            this.cboPlano.TabIndex = 1;
-            // 
-            // lblDias
-            // 
-            this.lblDias.AutoSize = true;
-            this.lblDias.Location = new System.Drawing.Point(220, 23);
-            this.lblDias.Name = "lblDias";
-            this.lblDias.Size = new System.Drawing.Size(28, 13);
-            this.lblDias.TabIndex = 22;
-            this.lblDias.Text = "Dias";
-            // 
-            // txtDias
-            // 
-            this.txtDias.Location = new System.Drawing.Point(256, 19);
-            this.txtDias.MaxLength = 100;
-            this.txtDias.Name = "txtDias";
-            this.txtDias.ReadOnly = true;
-            this.txtDias.Size = new System.Drawing.Size(68, 20);
-            this.txtDias.TabIndex = 21;
-            // 
-            // lblValor
-            // 
-            this.lblValor.AutoSize = true;
-            this.lblValor.Location = new System.Drawing.Point(340, 22);
-            this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(31, 13);
-            this.lblValor.TabIndex = 24;
-            this.lblValor.Text = "Valor";
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(381, 19);
-            this.txtValor.MaxLength = 100;
-            this.txtValor.Name = "txtValor";
-            this.txtValor.ReadOnly = true;
-            this.txtValor.Size = new System.Drawing.Size(82, 20);
-            this.txtValor.TabIndex = 23;
-            // 
-            // lblDescricao
-            // 
-            this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(9, 48);
-            this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(55, 13);
-            this.lblDescricao.TabIndex = 52;
-            this.lblDescricao.Text = "Descrição";
-            // 
             // grdPagamento
             // 
             this.grdPagamento.AllowUserToAddRows = false;
@@ -269,33 +298,7 @@
             this.grdPagamento.Size = new System.Drawing.Size(712, 145);
             this.grdPagamento.TabIndex = 51;
             this.grdPagamento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPagamento_CellClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(474, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "Status";
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Location = new System.Drawing.Point(515, 19);
-            this.txtStatus.MaxLength = 100;
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(203, 20);
-            this.txtStatus.TabIndex = 53;
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(12, 71);
-            this.txtDescricao.MaxLength = 100;
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.ReadOnly = true;
-            this.txtDescricao.Size = new System.Drawing.Size(706, 20);
-            this.txtDescricao.TabIndex = 55;
+            this.grdPagamento.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.grdPagamento_ColumnWidthChanged);
             // 
             // frmPagamento
             // 
@@ -312,11 +315,12 @@
             this.Controls.Add(this.btnLimpar);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPagamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Treino";
+            this.Text = "Pagamentos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpLista.ResumeLayout(false);

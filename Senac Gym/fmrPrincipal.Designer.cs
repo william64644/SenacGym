@@ -93,6 +93,7 @@
             this.btnTreino.Name = "btnTreino";
             this.btnTreino.Size = new System.Drawing.Size(76, 28);
             this.btnTreino.Text = "Treino";
+            this.btnTreino.Click += new System.EventHandler(this.btnTreino_Click);
             // 
             // btnConsultaIMC
             // 

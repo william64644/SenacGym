@@ -21,6 +21,9 @@ namespace Senac_Gym
         public decimal valorPagamento { get; set; }
         //public DateTime dataPagamento { get; set; }
         public string dataPagamento { get; set; }
+        public int duracao { get; set; }
+        public string plano { get; set; }
+        public string descricao { get; set; }
         //Criamos o método construtor para definirmos valores
         //padrão para as propriedades no momento da instância do objeto
         public Pagamento()
@@ -48,14 +51,14 @@ namespace Senac_Gym
                 //Limpamos a lista de parâmetros
                 lista.Clear();
                 //Definimos o comando SQL (SELECT)
-                sql = "select id idAluno, idPlano, valorPagamento, dataPagamento \n";
-                sql += "from tblPagamento \n";
+                sql = "SELECT pag.id AS idPagamento, pag.idAluno, pag.idPlano, nome, descricao, duracao, valor, pag.valorPagamento, pag.dataPagamento \n";
+                sql += "FROM tblPagamento pag INNER JOIN tblPlano plano ON plano.id = pag.idPlano \n";
                 if (id != 0)
                 {
                     //Caso o ID esteja preenchido
                     //Definimos a consulta pela chave primária
                     //sql += "where tblImc.id = @id \n";
-                    sql += "where id = @id \n";
+                    sql += "where pag.id = @id \n";
                     //adicionamos o parâmetro à lista de parâmetros
                     lista.Add(new SqlParameter("@id", id));
                 }
@@ -76,12 +79,15 @@ namespace Senac_Gym
                 {
                     //id	idAluno	idPlano	valorPagamento	dataPagamento
 
-                    id = Convert.ToInt32(dt.Rows[0]["id"]);
+                    id = Convert.ToInt32(dt.Rows[0]["idPagamento"]);
                     idAluno = Convert.ToInt32(dt.Rows[0]["idAluno"]);
                     idPlano = Convert.ToInt32(dt.Rows[0]["idPlano"]);
                     valorPagamento = Convert.ToDecimal(dt.Rows[0]["valorPagamento"]);
                     //dataPagamento = DateTime.ParseExact(dt.Rows[0]["dataNascimento"].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
                     dataPagamento = dt.Rows[0]["dataPagamento"].ToString();
+                    duracao = Convert.ToInt32(dt.Rows[0]["duracao"]);
+                    plano = dt.Rows[0]["nome"].ToString();
+                    descricao = dt.Rows[0]["descricao"].ToString();
 
                 }
                 //Retornamos o DataTable com os dentistas retornados na consulta
