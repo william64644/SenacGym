@@ -237,6 +237,7 @@
             // 
             // btnGravar
             // 
+            this.btnGravar.Image = global::Senac_Gym.Properties.Resources.FloppyDisks;
             this.btnGravar.Location = new System.Drawing.Point(12, 407);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(115, 41);
@@ -249,6 +250,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Image = global::Senac_Gym.Properties.Resources.exit;
             this.btnCancelar.Location = new System.Drawing.Point(256, 407);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(115, 41);
@@ -261,6 +263,7 @@
             // 
             // btnLimpar
             // 
+            this.btnLimpar.Image = global::Senac_Gym.Properties.Resources.eraser;
             this.btnLimpar.Location = new System.Drawing.Point(134, 407);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(115, 41);

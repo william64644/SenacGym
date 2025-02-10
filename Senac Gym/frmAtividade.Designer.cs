@@ -127,6 +127,7 @@
             this.txtRepeticao.Name = "txtRepeticao";
             this.txtRepeticao.Size = new System.Drawing.Size(51, 20);
             this.txtRepeticao.TabIndex = 5;
+            this.txtRepeticao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRepeticao_KeyPress);
             // 
             // cboTreino
             // 
@@ -153,6 +154,7 @@
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(51, 20);
             this.txtSerie.TabIndex = 4;
+            this.txtSerie.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSerie_KeyPress);
             // 
             // txtObservacao
             // 
@@ -265,7 +267,7 @@
             // btnGravar
             // 
             this.btnGravar.Image = global::Senac_Gym.Properties.Resources.FloppyDisks;
-            this.btnGravar.Location = new System.Drawing.Point(342, 519);
+            this.btnGravar.Location = new System.Drawing.Point(345, 519);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(115, 41);
             this.btnGravar.TabIndex = 40;
@@ -278,7 +280,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Image = global::Senac_Gym.Properties.Resources.exit;
-            this.btnCancelar.Location = new System.Drawing.Point(586, 519);
+            this.btnCancelar.Location = new System.Drawing.Point(589, 519);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(115, 41);
             this.btnCancelar.TabIndex = 42;
@@ -319,7 +321,7 @@
             // btnLimpar
             // 
             this.btnLimpar.Image = global::Senac_Gym.Properties.Resources.eraser;
-            this.btnLimpar.Location = new System.Drawing.Point(463, 519);
+            this.btnLimpar.Location = new System.Drawing.Point(466, 519);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(115, 41);
             this.btnLimpar.TabIndex = 41;
@@ -332,7 +334,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Image = global::Senac_Gym.Properties.Resources.Minus_16;
-            this.btnExcluir.Location = new System.Drawing.Point(211, 519);
+            this.btnExcluir.Location = new System.Drawing.Point(214, 519);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(125, 41);
             this.btnExcluir.TabIndex = 43;
@@ -345,7 +347,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Image = global::Senac_Gym.Properties.Resources.check;
-            this.btnImprimir.Location = new System.Drawing.Point(80, 519);
+            this.btnImprimir.Location = new System.Drawing.Point(83, 519);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(125, 41);
             this.btnImprimir.TabIndex = 44;
@@ -370,8 +372,10 @@
             this.Controls.Add(this.grpAluno);
             this.Controls.Add(this.btnLimpar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAtividade";
-            this.Text = "Senac Gym - Atividades";
+            this.Text = "Senac Gym -Treinos";
             this.Load += new System.EventHandler(this.frmAtividade_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

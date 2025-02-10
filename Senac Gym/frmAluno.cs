@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HappySmile;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -151,6 +152,9 @@ namespace Senac_Gym
                 if (txtCelular.Text == string.Empty)
                 {
                     msgErro += "Preencha o CELULAR.\n";
+                } else if (txtCelular.Text.Length < 11)
+                {
+                    msgErro += "Celular deve ter 11 dígitos.\n";
                 }
 
                 if (txtEmail.Text == string.Empty)
@@ -175,7 +179,10 @@ namespace Senac_Gym
             }
         }
 
-
+        private void txtCelular_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Global.SomenteNumeros(e.KeyChar, txtCelular);
+        }
     }
 
 }

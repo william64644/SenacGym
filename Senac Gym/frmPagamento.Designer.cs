@@ -44,13 +44,13 @@
             this.grpPesquisa = new System.Windows.Forms.GroupBox();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblPesquisa = new System.Windows.Forms.Label();
-            this.btnGravar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.grpDados = new System.Windows.Forms.GroupBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.grdPagamento = new System.Windows.Forms.DataGridView();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAluno)).BeginInit();
@@ -142,8 +142,7 @@
             // 
             // cboPlano
             // 
-            this.cboPlano.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboPlano.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboPlano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlano.FormattingEnabled = true;
             this.cboPlano.Location = new System.Drawing.Point(12, 19);
             this.cboPlano.Name = "cboPlano";
@@ -217,30 +216,6 @@
             this.lblPesquisa.TabIndex = 0;
             this.lblPesquisa.Text = "Pesquisar por";
             // 
-            // btnGravar
-            // 
-            this.btnGravar.Image = global::Senac_Gym.Properties.Resources.FloppyDisks;
-            this.btnGravar.Location = new System.Drawing.Point(377, 462);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(115, 41);
-            this.btnGravar.TabIndex = 47;
-            this.btnGravar.Text = "&Gravar";
-            this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGravar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGravar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Image = global::Senac_Gym.Properties.Resources.exit;
-            this.btnCancelar.Location = new System.Drawing.Point(621, 462);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(115, 41);
-            this.btnCancelar.TabIndex = 49;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
             // grpDados
             // 
             this.grpDados.Controls.Add(this.lblNome);
@@ -270,18 +245,6 @@
             this.txtNome.Size = new System.Drawing.Size(312, 20);
             this.txtNome.TabIndex = 0;
             // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Image = global::Senac_Gym.Properties.Resources.eraser;
-            this.btnLimpar.Location = new System.Drawing.Point(498, 462);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(115, 41);
-            this.btnLimpar.TabIndex = 48;
-            this.btnLimpar.Text = "&Limpar";
-            this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            // 
             // grdPagamento
             // 
             this.grdPagamento.AllowUserToAddRows = false;
@@ -299,6 +262,45 @@
             this.grdPagamento.TabIndex = 51;
             this.grdPagamento.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPagamento_CellClick);
             this.grdPagamento.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.grdPagamento_ColumnWidthChanged);
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.Image = global::Senac_Gym.Properties.Resources.FloppyDisks;
+            this.btnGravar.Location = new System.Drawing.Point(377, 462);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(115, 41);
+            this.btnGravar.TabIndex = 47;
+            this.btnGravar.Text = "&Gravar";
+            this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGravar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::Senac_Gym.Properties.Resources.exit;
+            this.btnCancelar.Location = new System.Drawing.Point(621, 462);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(115, 41);
+            this.btnCancelar.TabIndex = 49;
+            this.btnCancelar.Text = "&Fechar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Image = global::Senac_Gym.Properties.Resources.eraser;
+            this.btnLimpar.Location = new System.Drawing.Point(498, 462);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(115, 41);
+            this.btnLimpar.TabIndex = 48;
+            this.btnLimpar.Text = "&Limpar";
+            this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // frmPagamento
             // 
@@ -320,7 +322,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPagamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pagamentos";
+            this.Text = "Senac Gym -Pagamentos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpLista.ResumeLayout(false);

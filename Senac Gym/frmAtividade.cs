@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HappySmile;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -136,7 +137,6 @@ namespace Senac_Gym
             cboTreino.Text = atividade.treino;
             cboExercicio.Text = atividade.exercicio;
             cboMusculo.Text = atividade.musculo;
-            txtNome.Text = atividade.aluno;
             txtObservacao.Text = atividade.comentario;
             txtRepeticao.Text = atividade.repeticao.ToString();
             txtSerie.Text = atividade.serie.ToString();
@@ -212,12 +212,57 @@ namespace Senac_Gym
 
         }
 
+        private string ValidarPreenchimento()
+        {
+            string mensagemErro = string.Empty;
+            if (cboMusculo.SelectedIndex == -1)
+            {
+                mensagemErro += "Selecione um músculo\n";
+            }
+            if (cboExercicio.SelectedIndex == -1)
+            {
+                mensagemErro += "Selecione um exercício\n";
+            }
+            if (cboTreino.SelectedIndex == -1)
+            {
+                mensagemErro += "Selecione um treino\n";
+            }
+            if (txtRepeticao.Text == "0")
+            {
+                mensagemErro += "Informe a quantidade de repetições\n";
+            }
+            if (txtSerie.Text == "0")
+            {
+                mensagemErro += "Informe a quantidade de séries\n";
+            }
+            return mensagemErro;
+        }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            PreencherClasse();
-            atividade.Gravar();
-            atividade.id = 0;
-            carregarGridAtividade();
+            try
+            {
+                string mensagemErro = ValidarPreenchimento();
+                if (mensagemErro != string.Empty)
+                {
+                    MessageBox.Show(mensagemErro, "Erro de Preenchimento",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                PreencherClasse();
+                atividade.Gravar();
+                atividade.id = 0;
+                carregarGridAtividade();
+                MessageBox.Show("Aluno gravado com sucesso!", "Cadastro de Alunos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro-->" + ex.Message, "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -264,12 +309,38 @@ namespace Senac_Gym
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            if (atividade == null || atividade.id == 0)
+            {
+                MessageBox.Show("Selecione uma atividade para excluir.", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             PreencherClasse();
             atividade.ExcluirAtividade();
-            atividade.id = 0;
+            atividade = new Atividade();
+            atividade.idAluno = aluno.id;
             carregarGridAtividade();
+
+            MessageBox.Show("Atividade excluída com sucesso!", "Exclusão de Atividade",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtRepeticao.Text = string.Empty;
+            txtSerie.Text = string.Empty;
+            txtObservacao.Text = string.Empty;
+            cboMusculo.SelectedIndex = -1;
+            cboExercicio.SelectedIndex = -1;
+            cboTreino.SelectedIndex = -1;
+
         }
 
+        private void txtSerie_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Global.SomenteNumeros(e.KeyChar, txtSerie);
+        }
 
+        private void txtRepeticao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Global.SomenteNumeros(e.KeyChar, txtRepeticao);
+        }
     }
 }

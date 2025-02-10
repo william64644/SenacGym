@@ -15,7 +15,7 @@ namespace Senac_Gym
         private Pagamento pagamento;
         private Aluno aluno;
         private Plano plano;
-        private bool consultandoAluno = true;
+        private bool consultandoAluno = false;
         public frmPagamento()
         {
             InitializeComponent();
@@ -213,6 +213,79 @@ namespace Senac_Gym
             }
             
 
+        }
+
+        private void preencherClasse()
+        {
+            pagamento = new Pagamento();
+            pagamento.idAluno = aluno.id;
+            pagamento.idPlano = (int)(cboPlano.SelectedValue);
+            pagamento.descricao = txtDescricao.Text;
+            pagamento.duracao = Convert.ToInt32(txtDias.Text);
+            pagamento.valorPagamento = Convert.ToDecimal(txtValor.Text);
+            pagamento.dataPagamento = DateTime.Now.ToString();
+            
+        }
+
+        private string ValidarPreenchimento()
+        {
+            string mensagemErro = string.Empty;
+            if (txtNome.Text == string.Empty)
+            {
+                mensagemErro += "Selecione um aluno\n";
+            }
+            if (cboPlano.SelectedIndex == -1)
+            {
+                mensagemErro += "Selecione um plano\n";
+            }
+          
+            return mensagemErro;
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                string mensagemErro = ValidarPreenchimento();
+                if (mensagemErro != string.Empty)
+                {
+                    MessageBox.Show(mensagemErro, "Erro de Preenchimento",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                preencherClasse();
+                pagamento.Gravar();
+                grdPagamento.DataSource = pagamento.Consultar();
+                configurarGridPagamento();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro-->" + ex.Message, "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            // Limpa os campos do formulário
+            txtNome.Text = string.Empty;
+            txtDescricao.Text = string.Empty;
+            txtDias.Text = string.Empty;
+            txtValor.Text = string.Empty;
+            txtStatus.Text = string.Empty;
+            txtPesquisa.Text = string.Empty;
+            cboPlano.SelectedIndex = -1;
+
+            // Limpa os grids
+            grdPagamento.DataSource = null;
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

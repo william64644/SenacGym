@@ -194,11 +194,11 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(40, 22);
+            this.lblUsuario.Location = new System.Drawing.Point(29, 22);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(34, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
             this.lblUsuario.TabIndex = 33;
-            this.lblUsuario.Text = "Aluno";
+            this.lblUsuario.Text = "Aluno(a)";
             // 
             // txtImc
             // 

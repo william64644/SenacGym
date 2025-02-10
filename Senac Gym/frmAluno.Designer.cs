@@ -85,10 +85,11 @@
             // txtCelular
             // 
             this.txtCelular.Location = new System.Drawing.Point(55, 47);
-            this.txtCelular.MaxLength = 100;
+            this.txtCelular.MaxLength = 11;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(299, 20);
             this.txtCelular.TabIndex = 2;
+            this.txtCelular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCelular_KeyPress);
             // 
             // txtNome
             // 
@@ -119,6 +120,7 @@
             // 
             // btnLimpar
             // 
+            this.btnLimpar.Image = global::Senac_Gym.Properties.Resources.eraser;
             this.btnLimpar.Location = new System.Drawing.Point(498, 434);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(115, 41);
@@ -159,6 +161,7 @@
             // 
             // btnGravar
             // 
+            this.btnGravar.Image = global::Senac_Gym.Properties.Resources.FloppyDisks;
             this.btnGravar.Location = new System.Drawing.Point(377, 434);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(115, 41);
@@ -171,6 +174,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Image = global::Senac_Gym.Properties.Resources.exit;
             this.btnCancelar.Location = new System.Drawing.Point(621, 434);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(115, 41);
@@ -246,6 +250,8 @@
             this.Controls.Add(this.grpDados);
             this.Controls.Add(this.grpLista);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAluno";
             this.Text = "Senac Gym - Alunos";
             this.Load += new System.EventHandler(this.frmAluno_Load);

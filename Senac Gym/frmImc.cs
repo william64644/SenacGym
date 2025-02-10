@@ -24,6 +24,12 @@ namespace Senac_Gym
             {
                 float peso = float.Parse(txtPeso.Text);
                 float altura = float.Parse(txtAltura.Text);
+                if (peso == 0 || altura == 0)
+                {
+                    txtImc.Clear();
+                    txtStatus.Clear();
+                    return;
+                }
                 float imc = peso / (altura * altura);
                 txtImc.Text = imc.ToString();
 
@@ -173,10 +179,9 @@ namespace Senac_Gym
         private void PreencherFormulario()
         {
             txtNome.Text = imc.nome;
-            txtAltura.Text = imc.altura.ToString();
-            txtPeso.Text = imc.peso.ToString();
-            txtIdade.Text = imc.idade.ToString();
-
+            txtAltura.Text = imc.altura != 0 ? imc.altura.ToString() : "";
+            txtPeso.Text = imc.peso != 0 ? imc.peso.ToString() : "";
+            txtIdade.Text = imc.idade != 0 ? imc.idade.ToString() : "";
         }
 
         private void frmImc_Load(object sender, EventArgs e)

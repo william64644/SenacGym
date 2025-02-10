@@ -86,12 +86,13 @@
             this.btnPagamentos.Name = "btnPagamentos";
             this.btnPagamentos.Size = new System.Drawing.Size(109, 28);
             this.btnPagamentos.Text = "&Pagamentos";
+            this.btnPagamentos.Click += new System.EventHandler(this.btnPagamentos_Click);
             // 
             // btnTreino
             // 
             this.btnTreino.Image = global::Senac_Gym.Properties.Resources.Treino;
             this.btnTreino.Name = "btnTreino";
-            this.btnTreino.Size = new System.Drawing.Size(76, 28);
+            this.btnTreino.Size = new System.Drawing.Size(75, 28);
             this.btnTreino.Text = "Treino";
             this.btnTreino.Click += new System.EventHandler(this.btnTreino_Click);
             // 
@@ -109,6 +110,7 @@
             this.mnuSobre.Name = "mnuSobre";
             this.mnuSobre.Size = new System.Drawing.Size(73, 28);
             this.mnuSobre.Text = "&Sobre";
+            this.mnuSobre.Click += new System.EventHandler(this.mnuSobre_Click);
             // 
             // mnuSair
             // 
@@ -122,6 +124,7 @@
             // 
             this.tmrPrincipal.Enabled = true;
             this.tmrPrincipal.Interval = 1000;
+            this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
             // 
             // lblTempo
             // 
@@ -164,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Senac_Gym.Properties.Resources.Gym2;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -176,6 +179,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Senac Gym - Tela inicial";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
