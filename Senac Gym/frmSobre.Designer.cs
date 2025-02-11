@@ -57,7 +57,7 @@
             // pctCliente
             // 
             this.pctCliente.Image = global::Senac_Gym.Properties.Resources.Captura_de_tela_2025_01_23_192832;
-            this.pctCliente.Location = new System.Drawing.Point(295, 12);
+            this.pctCliente.Location = new System.Drawing.Point(295, 18);
             this.pctCliente.Name = "pctCliente";
             this.pctCliente.Size = new System.Drawing.Size(201, 198);
             this.pctCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
