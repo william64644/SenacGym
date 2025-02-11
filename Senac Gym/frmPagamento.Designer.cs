@@ -322,7 +322,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPagamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Senac Gym -Pagamentos";
+            this.Text = "Senac Gym - Pagamentos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpLista.ResumeLayout(false);

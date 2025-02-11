@@ -88,7 +88,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSobre";
-            this.Text = "Senac Gym -Sobre";
+            this.Text = "Senac Gym - Sobre";
             ((System.ComponentModel.ISupportInitialize)(this.pctCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
