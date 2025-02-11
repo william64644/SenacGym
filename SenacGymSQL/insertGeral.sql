@@ -96,7 +96,6 @@ VALUES
     ('Mensal', 'Plano com acesso durante 30 dias.', 50.00, 30),          -- 30 dias
     ('Trimestral', 'Plano com acesso durante 3 meses.', 140.00, 90),     -- 90 dias
     ('Anual', 'Plano com acesso durante 12 meses.', 500.00, 365);        -- 365 dias
-GO
 
 INSERT INTO tblAluno (nome, telefone, dataNascimento, email, ativoAte)
 VALUES 
@@ -379,7 +378,5 @@ BEGIN
     -- Incrementar o contador
     SET @i = @i + 1;
 END;
-GO
-
 
 
