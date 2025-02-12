@@ -31,7 +31,7 @@ namespace SenacHair
                 usuario.login = txtUsuario.Text;
                 usuario.Consultar();
 
-                if (!usuario.ativo)
+                if (!usuario.ativo && usuario.password != "")
                 {
                     MessageBox.Show("Usuário inativo.", "Login",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -7,10 +7,6 @@ password varchar(32),
 ativo bit
 )
 
-insert into tblUsuario
-values (
-'a','Testador','0cc175b9c0f1b6a831c399e269772661',1)
-
 CREATE TABLE tblAluno (
     id                    INT IDENTITY(1,1) PRIMARY KEY,             -- ID único para cada aluno
     nome                  VARCHAR(100) NOT NULL,					 -- Nome do aluno
